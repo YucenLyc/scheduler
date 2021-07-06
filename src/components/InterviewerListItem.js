@@ -12,9 +12,9 @@ export default function InterviewerListItem(props) {
 
   const interviewerImgClass = classnames("interviewers__item-image", { "interviewers__item--selected-image": props.selcted,
   });
-
+  console.log(props.selected, props.id);
   return (
-    <li className={interviewerClass} onClick={props.setInterviewer}>
+    <li className={interviewerClass} onClick={() => props.setInterviewer()}>
       <img
         className={interviewerImgClass}
         src={props.avatar}
@@ -24,3 +24,4 @@ export default function InterviewerListItem(props) {
     </li>
   );
 }
+//setInterviewer 
