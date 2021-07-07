@@ -113,7 +113,7 @@ storiesOf("InterviewerListItem", module)
       id={interviewer.id}
       name={interviewer.name}
       avatar={interviewer.avatar}
-      setInterviewer={action("setInterviewer")}
+      setInterviewer={event => action("setInterviewer")(interviewer.id)}
     />
   ));
 
@@ -139,7 +139,8 @@ storiesOf("InterviewerListItem", module)
     .add("Preselected", () => (
       <InterviewerList
         interviewers={interviewers}
-        interviewerSelected={3}
+        value={3}
         setInterviewer={action("setInterviewer")}
       />
     ));
+    
