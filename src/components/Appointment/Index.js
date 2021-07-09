@@ -3,20 +3,45 @@ import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
+import useVisualMode from "hooks/useVisualMode";
+import Form from "components/Appointment/Form";
+
+
 
 export default function Appointment(props) {
-  console.log("props from Appointment index.js:", props)
-  return(
-    
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  
+  
+
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
+
+  function save () {
+    console.log("SAVING");
+    back();
+  }
+
+  return (
+
     <article className="appointment">
-      {/* all appointment component will render a header && time prop: */}
+
       <Header time={props.time} />
+      {mode === EMPTY && <Empty onAdd={()=>{transition(CREATE)}}/>}
 
-       {/* if props.interview is truthy, the appointment will render the <Show />, else will render <Empty /> */}
-      {props.interview && <Show student={props.interview.student} interviewer={props.interview.interviewer} />}
+      {mode === SHOW && (
+        <Show
+          student={props.interview.student}
+          interviewer={props.interview.interviewer}
+        />
+      )}
+      {mode === CREATE && (
+        <Form interviewers ={props.interviewers} onSave ={save}onCancel={back} />
+        
+      )}
 
-      {!props.interviewer && <Empty onClick={props.onAdd} />}
-      
     </article>
   )
 }
