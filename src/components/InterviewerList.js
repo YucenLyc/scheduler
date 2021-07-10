@@ -5,8 +5,8 @@ import "components/InterviewerList.scss";
 
 export default function InterviewerList(props) {
   
-  console.log("InterviewerList.js props.interviewers =", props.interviewers);
-  
+  //console.log("InterviewerList.js props.interviewers =", props.interviewers);
+
   const interviewers = props.interviewers.map(interviewer => {
 
     return (
