@@ -19,8 +19,8 @@ export default function Appointment(props) {
   const CONFIRM = "CONFIRM";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
-  const ERROR_SAVING = "ERROR_SAVING";
-  const ERROR_DELETING = "ERROR_DELETING";
+  // const ERROR_SAVING = "ERROR_SAVING";
+  // const ERROR_DELETING = "ERROR_DELETING";
   
 
   const { mode, transition, back } = useVisualMode(
@@ -39,14 +39,18 @@ export default function Appointment(props) {
    .catch(err=> console.log(err)); 
   }
 
+  const deleteConfirmation = () => {
+    transition(CONFIRM, true);
+  };
+
   const deleteAppointment = () => {
     transition(DELETING, true);
 
-    console.log(props, "this is the props from index.js")
-    props.cancelInterview(props.id)
+    //console.log(props, "this is the props from index.js")
+    Promise.resolve(props.cancelInterview(props.id))
     .then(() => transition(EMPTY))
     .catch(err=>console.log(err)); 
-  }
+  };
 
   
   return (
@@ -61,7 +65,7 @@ export default function Appointment(props) {
           id={props.id}
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          onDelete={deleteAppointment}
+          onDelete={deleteConfirmation}
         />
       )}
       {mode === CREATE && (
@@ -74,13 +78,13 @@ export default function Appointment(props) {
       {mode === SAVING && (
         <Status message="Saving" />
       )}
-      {/* {mode === CONFIRM && (
+      {mode === CONFIRM && (
         <Confirm 
-        message="Are you sure you want to delete?" 
         onConfirm={deleteAppointment}
         onCancel={() => back()}
+        message="Are you sure you want to delete?" 
         />
-      )}  */}
+      )} 
       {mode === DELETING && (
         <Status 
           message="Deleting"
