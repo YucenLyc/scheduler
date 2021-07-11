@@ -112,6 +112,12 @@ export default function Appointment(props) {
         onClose={() => back()}
         />
       )}
+      {mode === ERROR_DELETE && (
+        <Error 
+        message="Unable to delete"
+        onClose={() => back()}
+        />
+      )}
     </article>
   )
 }
