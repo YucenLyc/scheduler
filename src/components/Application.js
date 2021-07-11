@@ -40,8 +40,7 @@ export default function Application(props) {
     };
 
     return axios.put(`/api/appointments/${id}`, {interview})
-    .then(() => setState({...state, appointments}))
-    .catch(err => console.log(err));
+    .then(() => setState({...state, appointments}));
     
   }
 
@@ -56,8 +55,7 @@ export default function Application(props) {
     };
     //console.log("this is state&appointments in application:", state, appointments)
     return axios.delete(`/api/appointments/${id}`)
-    .then(() => setState({...state, appointments}))
-    .catch(err => console.log(err));
+    .then(() => setState({...state, appointments}));
   };
 
 
