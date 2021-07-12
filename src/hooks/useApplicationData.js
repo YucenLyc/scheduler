@@ -56,6 +56,7 @@ export default function useApplicationData(initial) {
 
     function increaseSpots() {
       const availableDays = [...state.days];
+      console.log(state.days[0].spots, "BEFORE")
       availableDays.map((day) => {
         for(const appointment of day.appointments){
           if(appointment === id) {
@@ -63,6 +64,7 @@ export default function useApplicationData(initial) {
           }
         }
       })
+      console.log(state.days[0].spots, "AFTER")
       return availableDays;
     }
     //console.log("this is state&appointments in application:", state, appointments)
