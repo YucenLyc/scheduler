@@ -1,6 +1,3 @@
-
-
-
 const fixtures = {
   days: [
     {
@@ -57,6 +54,7 @@ const fixtures = {
 };
 
 export default {
+  //mocking the entire axios object, including axios.defaults.baseURL:
   defaults: { baseURL: "" },
   get: jest.fn(url => {
 
@@ -85,5 +83,12 @@ export default {
         data: fixtures.interviewers
       })
     }
+  }),
+
+  put: jest.fn(url => {
+    return Promise.resolve({
+      status: 204,
+      statusText:"No Content"
+    })
   })
 }

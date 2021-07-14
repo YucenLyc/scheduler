@@ -32,18 +32,16 @@ export default function useApplicationData(initial) {
 
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
-      // numOfSpots(id, -1);
-      //spot decrease when the user books an appointment 
-      console.log("hello, can you see this? this is right before map")
+      
       const days = state.days.map((day) => {
         if (day.appointments.includes(id)) {
           return { ...day, spots: editAppt ? day.spots:  day.spots - 1}
         }
         return day;
       })
-      console.log("this is the days array:", days)
+      //console.log("this is the days array:", days)
       setState({...state, appointments, days})
-      console.log("this is the state.days", state.days)
+      //console.log("this is the state.days", state.days)
       console.log(state.days[0].spots, "AFTER")
     })
   }
