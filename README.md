@@ -41,3 +41,25 @@ https://user-images.githubusercontent.com/72534921/125714091-6675761b-6c4f-4187-
 ## Deleting Message: 
 ![deleting](https://user-images.githubusercontent.com/72534921/125713881-11a129a7-8f41-4a54-83cd-1f4a1df4c88b.png)
 
+
+## Setup
+
+Install dependencies with `npm install`.
+
+## Running Webpack Development Server
+
+```sh
+npm start
+```
+
+## Running Jest Test Framework
+
+```sh
+npm test
+```
+
+## Running Storybook Visual Testbed
+
+```sh
+npm run storybook
+```
