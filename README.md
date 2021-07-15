@@ -1,5 +1,5 @@
 # Interview Scheduler
-
+https://gfycat.com/fairperiodicibex
 ## Setup
 
 Install dependencies with `npm install`.
