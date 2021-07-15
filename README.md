@@ -21,6 +21,11 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## A Screen-Recording of How the APP Works: 
+
+https://user-images.githubusercontent.com/72534921/125714091-6675761b-6c4f-4187-9319-a0eca58870bd.mov
+
 ## Create New Appointments:
 ![new appt](https://user-images.githubusercontent.com/72534921/125713519-3f01aabc-6b46-4f0c-bcd9-69741520728f.png)
 
