@@ -39,9 +39,6 @@ export default function Appointment(props) {
       .then(() => transition(SHOW))
       .catch(err => transition(ERROR_SAVE, true));
     }
-  // const deleteConfirmation = () => {
-  //   transition(CONFIRM, true);
-  // };
 
   const deleteAppointment = () => {
     transition(DELETING);
