@@ -33,6 +33,7 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+    
     transition(SAVING);
     //need to have a Promise here to wait for the axios put 
     props.bookInterview(props.id, interview)
